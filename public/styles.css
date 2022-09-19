@@ -1,0 +1,9 @@
+.side-by-side {
+    display: inline-block;
+    width: 30%;
+}
+
+.block {
+    display: block;
+}
+

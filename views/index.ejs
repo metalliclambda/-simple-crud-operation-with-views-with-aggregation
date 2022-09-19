@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="side-by-side">
+        <h4>Enter City</h4>
+        <form id="cityForm" action="" method="post">
+            <select id="region" name="regionId">
+                <option value="none" selected disabled hidden>Select an Option</option>
+
+                <% if (regions.length > 0) { %>       
+                    <% regions.forEach(function(x){  %> 
+                        <option value="<%= x._id %>"><%= x.name %></option>
+                    <% })  %>      
+                <% } %>
+
+            </select>
+            <input class="block" type="text" id="cityName" name="name">
+            <input type="number" name="popularity" id="popularityRate" max="10" min="0" value="0">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+
+    <div class="side-by-side">
+        <h4>Enter Region</h4>
+        <form  id="regionForm" action="" method="post">
+            <select id="country" name="country_id">
+                <option value="none" selected disabled hidden>Select an Option</option>
+                <% if (countries.length > 0) { %>       
+                    <% countries.forEach(function(x){  %> 
+                        <option value="<%= x._id %>"><%= x.name %></option>
+                    <% })  %>             
+                    
+                <% } %>
+            </select>
+            <input class="block" type="text" id="regionName" name="name">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+
+    <div class="side-by-side">
+        <h4>Enter Country</h4>
+        <form  id="countryForm" action="" method="post">
+            <input class="block" type="text" id="countryName" name="name">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <br>
+    
+
+
+    <div>
+        <h3>Get data : </h3>
+        <form id="queryForm" action="" method="get">
+            <h3>Search in :</h3>
+            <select id="queryOption" name="queryOption">
+                <option value="none" selected disabled hidden>Select an Option</option>
+                <option value="country">Country</option>
+                <option value="region">Region</option>                
+            </select>
+            <input class="block" type="text" id="countryName" name="name">
+            <p>Sort By :</p>
+            <select id="sortOption" name="sortOption">
+                <option value="none" selected disabled hidden>Select an Option</option>
+                <option value="popularity">Popularity</option>
+                <option value="name">Name</option>                
+            </select>
+
+            <input type="submit" value="Submit">
+        </form>
+        
+    </div>
+
+    <div>
+        <h3>Result :</h3>
+        <div id="resultDiv">
+
+        </div>
+    </div>
+
+    <script src="./index.js"></script>
+</body>
+
+</html>
